@@ -10,6 +10,7 @@ function! RunMatlabCurrentFile()
     let matlabcmd = 'cd '.expand('%:p:h').';'.
                 \strpart(expand('%:t'),0,len(expand('%:t'))-2).'^M'
     let precmd = 'silent !screen -S matlab -X stuff '
+    execute ':w'
     execute precmd."'".matlabcmd."'"
     redraw!
 endfunction
